@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       .then(function (response) {
         console.log(response);
-        axios.post("https://agile-anchorage-71618.herokuapp.com/links", {
+        axios.post("https://agile-anchorage-71618.herokuapp.com/api/v1/links", {
           link: { 'url': that.previousSibling.previousSibling.href }
         })
         .then(function (response) {
