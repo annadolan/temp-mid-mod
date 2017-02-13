@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       .then(function (response) {
         console.log(response);
-        axios.post("https://glacial-shore-55597.herokuapp.com/api/v1/links", {
+        axios.post("https://agile-anchorage-71618.herokuapp.com/links", {
           link: { 'url': that.previousSibling.previousSibling.href }
         })
         .then(function (response) {
