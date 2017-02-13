@@ -1,10 +1,17 @@
 require "rails_helper"
 
-describe "A user visits the root path" do
-  it "and they see a link to log in and a link to sign up" do
-    visit root_path
+describe "A user visits the login path" do
+  it "and they successfully log in" do
+    user = create(:user)
 
-    expect(page).to have_link("Log In")
-    expect(page).to have_link("Sign Up")
+    visit login_path
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    fill_in "Password confirmation", with: user.password
+    click_on "Log In"
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content "Welcome #{user.name}"
   end
 end
