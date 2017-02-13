@@ -9,8 +9,11 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome #{@user.name}!"
       redirect_to root_path
       session[:user_id] = @user.id
+    elsif User.find_by(email: params[:user][:email])
+      flash.now[:danger] = "There is already an email address associated with this account."
+      render :new
     else
-      flash.now[:danger] = "There was a problem creating your account."
+      flash.now[:danger] = "Please make sure that your password confirmation matches."
       render :new
     end
   end

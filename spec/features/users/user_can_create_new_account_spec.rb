@@ -15,14 +15,16 @@ describe "A user visits the signup form" do
     expect(page).to have_link("Log Out", logout_path)
   end
 
-  it "And leaves a field blank" do
+  it "And uses an existing email address" do
+    user = create(:user, email: 'anna@anna.com')
     visit signup_path
 
     fill_in "Name", with: "Anna"
     fill_in "Email", with: "anna@anna.com"
+    fill_in "Password", with: "password"
 
     click_on "Sign Up"
 
-    expect(page).to have_content("There was a problem creating your account.")
+    expect(page).to have_content("There is already an email address associated with this account.")
   end
 end
