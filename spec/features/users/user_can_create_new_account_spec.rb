@@ -12,6 +12,7 @@ describe "A user visits the signup form" do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Welcome Anna!")
+    expect(page).to have_link("Log Out", logout_path)
   end
 
   it "And leaves a field blank" do
