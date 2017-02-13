@@ -1,11 +1,20 @@
 <% if current_user %>
-  <%= link_to "Log Out", logout_path %>
+  <p><%= link_to "Log Out", logout_path %></p>
+  <p>
+  Create a new link
+  <%= form_for @link, url: {action: "create"} do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit "Submit Link" %>
+  <% end %>
+  </p>
+    <h1>Links</h1>
+    <%# @links.each do |link| %>
+    <div class="link"> <%#= link_to link.title, link.url %> <%#= link.read, class: "read-status" %> </div>
+    <%# end %>
 <% else %>
   <%= link_to "Log In", login_path %>
   <%= link_to "Sign Up", signup_path %>
 <% end %>
-
-<h1>Links</h1>
-<%# @links.each do |link| %>
-  <div class="link"> <%#= link_to link.title, link.url %> <%#= link.read, class: "read-status" %> </div>
-<%# end %>

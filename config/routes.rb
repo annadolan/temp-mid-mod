@@ -3,12 +3,11 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   resources :users, only: [:new, :create]
+  resources :links, only: [:create, :index]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-
-  resources :links, only: [:index]
 
   namespace :api do
     namespace :v1 do
