@@ -1,9 +1,9 @@
-class Api::V1::LinksController < ApplicationController
+class Api::V1::LinksController < ApiController
 
   def update
     @link = Link.find(params[:id])
     if @link.update_attributes(link_params)
-      render json: @link
+      render json: @link, status: 200
     else
       render json: @link.errors.full_messages, status: 500
     end
@@ -12,6 +12,6 @@ class Api::V1::LinksController < ApplicationController
   private
 
   def link_params
-    params.permit(:read)
+      params.require(:link).permit(:url, :title, :read)
   end
 end

@@ -3,6 +3,12 @@
   </p>
     <h1>Links</h1>
     <% @links.each do |link| %>
-    <div class="link"> <%= link_to link.title, link.url %> <%= link_to link.read.to_s, "", class: "read-status"%> </div>
+      <%= link_to link.title, link.url %>
+      <p>Read: <%= link.read.to_s %></p>
+      <% if link.read == false %>
+        <%= link_to "Mark as read", "", class: "read-button", id: "#{link.id}"  %>
+      <% else %>
+        Read
+      <% end %>
     <% end %>
 <% end %>
