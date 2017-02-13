@@ -2,13 +2,13 @@
     <%= render partial: 'form' %>
     <h1>Links</h1>
     <% @links.each do |link| %>
-      <p><%= link_to link.title, link.url %></p>
-      <p>Read: <%= link.read.to_s %></p>
-      <p><% if link.read == false %>
+      <%= link_to link.title, link.url %>
+      Read: <%= link.read.to_s %>
+      <% if link.read == false %>
         <%= link_to "Mark as read", "", class: "read-button", id: "#{link.id}"  %>
       <% else %>
         Marked as read
-      <% end %></p>
+      <% end %>
       <hr>
     <% end %>
 <% end %>
