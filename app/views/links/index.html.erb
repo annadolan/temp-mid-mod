@@ -11,9 +11,9 @@
   <% end %>
   </p>
     <h1>Links</h1>
-    <%# @links.each do |link| %>
-    <div class="link"> <%#= link_to link.title, link.url %> <%#= link.read, class: "read-status" %> </div>
-    <%# end %>
+    <% @links.each do |link| %>
+    <div class="link"> <%= link_to link.title, link.url %> <%= link_to link.read.to_s, "", class: "read-status"%> </div>
+    <% end %>
 <% else %>
   <%= link_to "Log In", login_path %>
   <%= link_to "Sign Up", signup_path %>
