@@ -1,6 +1,5 @@
 <% if current_user %>
     <%= render partial: 'form' %>
-  </p>
     <h1>Links</h1>
     <% @links.each do |link| %>
       <p><%= link_to link.title, link.url %></p>

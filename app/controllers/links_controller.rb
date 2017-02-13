@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def index
-    @link = current_user.links.new() if current_user
+    @link = Link.new
     @links = current_user.links if current_user
   end
 
