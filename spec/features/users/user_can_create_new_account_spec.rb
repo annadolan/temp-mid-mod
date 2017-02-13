@@ -8,7 +8,7 @@ describe "A user visits the signup form" do
     fill_in "Email", with: "anna@anna.com"
     fill_in "Password", with: "password"
 
-    click_on "Sign Up"
+    click_on "Create Account"
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Welcome Anna!")
@@ -23,7 +23,7 @@ describe "A user visits the signup form" do
     fill_in "Email", with: "anna@anna.com"
     fill_in "Password", with: "password"
 
-    click_on "Sign Up"
+    click_on "Create Account"
 
     expect(page).to have_content("There is already an email address associated with this account.")
   end
