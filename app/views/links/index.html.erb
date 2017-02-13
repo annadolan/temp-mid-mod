@@ -1,14 +1,7 @@
 <% if current_user %>
   <p><%= link_to "Log Out", logout_path %></p>
   <p>
-  Create a new link
-  <%= form_for @link, url: {action: "create"} do |f| %>
-    <%= f.label :url %>
-    <%= f.text_field :url %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.submit "Submit Link" %>
-  <% end %>
+    <%= render partial: 'form' %>
   </p>
     <h1>Links</h1>
     <% @links.each do |link| %>
