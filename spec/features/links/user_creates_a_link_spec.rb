@@ -23,6 +23,11 @@ describe 'A user visits the links index' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit root_path
 
+    fill_in "Url", with: "http://www.turing.io"
+    fill_in "Title", with: "Turing School of Software and Design"
+
+    click_on "Submit Link"
+
     fill_in "Url", with: "htp://www.turing.io"
     fill_in "Title", with: "Trking SCl of Spoofware and dumb"
 

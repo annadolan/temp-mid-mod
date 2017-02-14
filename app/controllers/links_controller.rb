@@ -22,16 +22,16 @@ class LinksController < ApplicationController
   def update
     @link = Link.find(params[:id])
     if @link.update(link_params)
-      redirect_to root_path
       flash[:success] = "Your link has updated!"
+      redirect_to root_path
     else
       flash.now[:danger] = "Your link did not update. Please make sure you enter a valid URL."
-
+      render :edit
     end
   end
 
   private
     def link_params
-      params.require(:link).permit(:url, :title, :read)
+      params.require(:link).permit(:id, :url, :title, :read)
     end
 end
