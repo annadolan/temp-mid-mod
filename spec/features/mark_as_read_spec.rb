@@ -5,16 +5,16 @@ RSpec.describe "can mark links as read", :js => :true do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    Link.create(url:"https://turing.io", title:"Turing")
+    user.links.create(url:"https://turing.io", title:"Turing")
 
     visit "/"
 
     expect(page).to have_text("Read: false")
 
 
-    click_on "Mark as read"
-    visit "/"
+    click_link "Mark as read"
 
+    visit "/"
     expect(page).to have_text("Read: true")
 
 
