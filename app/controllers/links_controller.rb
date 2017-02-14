@@ -6,7 +6,10 @@ class LinksController < ApplicationController
 
   def create
     @link = current_user.links.new(link_params)
-    if @link.save
+    if Link.find_by(url: @link.url)
+      flash[:danger] = "The link submitted already exists"
+      redirect_to root_path
+    elsif @link.save
       flash[:success] = "Your link has saved"
       redirect_to root_path
     else

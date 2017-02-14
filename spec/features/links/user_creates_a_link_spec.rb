@@ -37,4 +37,24 @@ describe 'A user visits the links index' do
     expect(page).to have_content("The link submitted was invalid")
 
   end
+
+  it 'and enters a url that already exists' do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit root_path
+
+    fill_in "Url", with: "http://www.turing.io"
+    fill_in "Title", with: "Turing School of Software and Design"
+
+    click_on "Submit Link"
+
+    fill_in "Url", with: "http://www.turing.io"
+    fill_in "Title", with: "Turing School of Software and Design"
+
+    click_on "Submit Link"
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("The link submitted already exists")
+
+  end
 end
