@@ -1,4 +1,6 @@
+<div class="container">
 <% if current_user %>
+  Create a new link:
     <%= render partial: 'form' %>
     <h1>Links</h1>
     <% @links.each do |link| %>
@@ -9,6 +11,8 @@
       <% else %>
         Marked as read
       <% end %>
+      <p> <% if link.id %><%= link_to "Edit", edit_link_path(link) %> <% end %></p>
       <hr>
     <% end %>
 <% end %>
+</div>

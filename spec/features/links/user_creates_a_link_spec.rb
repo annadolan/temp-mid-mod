@@ -19,10 +19,8 @@ describe 'A user visits the links index' do
   end
 
   it 'and enters an invalid url' do
-
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
     visit root_path
 
     fill_in "Url", with: "htp://www.turing.io"
@@ -32,5 +30,6 @@ describe 'A user visits the links index' do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("The link submitted was invalid")
+
   end
 end

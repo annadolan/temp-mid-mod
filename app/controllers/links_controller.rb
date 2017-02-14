@@ -15,6 +15,21 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    if @link.update(link_params)
+      redirect_to root_path
+      flash[:success] = "Your link has updated!"
+    else
+      flash.now[:danger] = "Your link did not update. Please make sure you enter a valid URL."
+
+    end
+  end
+
   private
     def link_params
       params.require(:link).permit(:url, :title, :read)

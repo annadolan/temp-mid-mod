@@ -1,5 +1,5 @@
-
-<%= form_for @link, url: {action: "create"} do |f| %>
+Edit link:
+<%= form_for @link, url: {action: "update"} do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url %>
   <%= f.label :title %>
