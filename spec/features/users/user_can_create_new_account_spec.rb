@@ -7,6 +7,7 @@ describe "A user visits the signup form" do
     fill_in "Name", with: "Anna"
     fill_in "Email", with: "anna@anna.com"
     fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
     click_on "Create Account"
 
@@ -22,6 +23,7 @@ describe "A user visits the signup form" do
     fill_in "Name", with: "Anna"
     fill_in "Email", with: "anna@anna.com"
     fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
     click_on "Create Account"
 
